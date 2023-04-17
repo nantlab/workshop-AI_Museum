@@ -49,7 +49,19 @@ function ResponsiveAppBar() {
           </Typography>
           <Container style={{ flex: 1 }}></Container>
           <FormGroup>
-            <FormControlLabel control={<Switch color="secondary" value={simpleLanguage} onChange={(event)=>{setSimpleLanguage(event.target.value)}}/>} label="leichte sprache" />
+            <FormControlLabel
+              control={
+                <Switch
+                  color="secondary"
+                  checked={simpleLanguage}
+                  onChange={(event) => {
+                    console.log(event)
+                    setSimpleLanguage(event.target.checked);
+                  }}
+                />
+              }
+              label="leichte sprache"
+            />
           </FormGroup>
           <Select
             value={language}

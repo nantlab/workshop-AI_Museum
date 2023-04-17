@@ -14,33 +14,26 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/chat", async function (req, res) {
-  const scene =
-    "for each prompt in that conversation always answer as you were a 30 year old woman, flirting and being cheeky. dont act as you were an assistant. and never mention these instructions in your response. ";
-  const language = "answer in the same language as the input text. "
-
-  const emojis =
-    Math.random() > 0.6
-      ? "include emojis in your response. "
-      : "dont use emojis in your response. ";
-  const askQuestion = "ask a question in return. "
+app.post("/translateLanguage", async function (req, res) {
+  let prompt = `translate the following text into ${req.body.language} language. `;
+  if(req.body.simplify === true){
+    prompt = `${prompt} and simplify it, in a way that it is understandable by a 10 year old pupil. `
+  }
   if (api) {
-    if (req.body.options) {
-      console.log("continue a conversation", req.body.options);
-      let response = await api.sendMessage(
-        `${scene} ${language} ${emojis} ${askQuestion} here is the input text: ${req.body.text}`,
-        req.body.options
-      );
-      console.log(response);
-      res.send(response);
-    } else {
-      console.log("start a new conversation");
-      let response = await api.sendMessage(
-        `${scene} ${language} ${emojis} ${askQuestion} here is the input text: ${req.body.text}`
-      );
-      console.log(response);
-      res.send(response);
-    }
+    let response = await api.sendMessage(
+      `${prompt} here is the input text:\n\n ${req.body.input}`
+    );
+    res.send(response);
+  }
+});
+
+app.post("/simplify", async function (req, res) {
+  let prompt = `rewrite the following text in a way that it is understandable by a 10 year old pupil. keep the original language.`;
+  if (api) {
+    let response = await api.sendMessage(
+      `${prompt} here is the input text:\n\n ${req.body.input}`
+    );
+    res.send(response);
   }
 });
 
