@@ -1,11 +1,7 @@
 # KI und museum
 
-Heyho Sonja,
-ich bin fast durch mit der vorbereitung.
-
-mein grober plan fuer die break out session
 * [demo] bot or not 
-* [demo] anpassung bot or not: 
+* [demo] anpassung bot or not: old grumpy man, who always talks about the good old days
 * [info] prompt engineering
 * [exercise] chatgpt webinterface: demo app mit kuratierten inhalt (objekte aus einer sammlung): ausgabe der beschreibungen in beliebiger sprache
 * [demo] anpassung in der demo app

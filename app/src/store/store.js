@@ -9,7 +9,7 @@ const BASE_URL = "http://localhost:3040";
 const useStore = create(
   devtools((set, get) => ({
     languages,
-    language: "English",
+    language: "German",
     simpleLanguage: false,
     items,
     // : [
@@ -28,25 +28,26 @@ const useStore = create(
       });
     },
     setCurrentItem: async (currentItem) => {
-    //   if (currentItem) {
-    //     const response = await axios.post(`${BASE_URL}/translateLanguage`, {
-    //       input: currentItem.description,
-    //       language: get().language,
-    //       simplify: get().simpleLanguage
-    //     });
-    //     set((state) => {
-    //       return {
-    //         currentItem: { ...currentItem, description: response.data.text },
-    //       };
-    //     });
-    //   } else {
-    //     set((state) => {
-    //       return { currentItem };
-    //     });
-    //   }
+        // console.log("set current item", currentItem)
+      if (currentItem  && (get().simpleLanguage || get().language !== "German")) {
+        const response = await axios.post(`${BASE_URL}/translateLanguage`, {
+          input: currentItem.description,
+          language: get().language,
+          simplify: get().simpleLanguage
+        });
+        set((state) => {
+          return {
+            currentItem: { ...currentItem, description: response.data.text },
+          };
+        });
+      } else {
         set((state) => {
           return { currentItem };
         });
+      }
+        // set((state) => {
+        //   return { currentItem };
+        // });
     },
   }))
 );

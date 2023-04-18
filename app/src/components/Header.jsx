@@ -48,14 +48,13 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Container style={{ flex: 1 }}></Container>
-          <FormGroup>
+          <FormGroup style={{color: "black"}}>
             <FormControlLabel
               control={
                 <Switch
                   color="secondary"
                   checked={simpleLanguage}
                   onChange={(event) => {
-                    console.log(event)
                     setSimpleLanguage(event.target.checked);
                   }}
                 />
