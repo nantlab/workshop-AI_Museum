@@ -7,4 +7,4 @@
 * [demo] anpassung in der demo app
 * [exercise] chatgpt webinterface: anpassung der sprache in einfache sprache (fuer kinder)
 * [demo] anpassung in der demo app
-* [exercise] ideation: weiter anwendungen von llm im musealen kontext
+* [exercise] ideation: weitere anwendungen von llm im musealen kontext

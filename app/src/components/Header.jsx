@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Container style={{ flex: 1 }}></Container>
-          <FormGroup style={{color: "black"}}>
+          {/* <FormGroup style={{color: "black"}}>
             <FormControlLabel
               control={
                 <Switch
@@ -61,8 +61,8 @@ function ResponsiveAppBar() {
               }
               label="leichte sprache"
             />
-          </FormGroup>
-          <Select
+          </FormGroup> */}
+          {/* <Select
             value={language}
             label="language"
             onChange={(event) => setLanguage(event.target.value)}
@@ -74,7 +74,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
               );
             })}
-          </Select>
+          </Select> */}
         </Toolbar>
       </Container>
     </AppBar>
