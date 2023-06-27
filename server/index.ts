@@ -38,14 +38,4 @@ app.post("/translateLanguage", async function (req, res) {
   }
 });
 
-app.post("/simplify", async function (req, res) {
-  let prompt = `rewrite the following text in a way that it is understandable by a 10 year old pupil. keep the original language.`;
-  if (api) {
-    let response = await api.sendMessage(
-      `${prompt} here is the input text:\n\n ${req.body.input}`
-    );
-    res.send(response);
-  }
-});
-
 app.listen(3040);

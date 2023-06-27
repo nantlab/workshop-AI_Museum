@@ -1,15 +1,11 @@
-# KI und museum
+# Demo: how to use LLMs to translate and simplify any text
+this is a simple demo made for a museum and llm event.
+it uses a dataset in german language and translates it into any language, it additionally simplifies the text.
 
-* [demo] bot or not 
-* [demo] anpassung bot or not: old grumpy man, who always talks about the good old days
-* [info] prompt engineering
-* [exercise] chatgpt webinterface: demo app mit kuratierten inhalt (objekte aus einer sammlung): ausgabe der beschreibungen in beliebiger sprache
-* [demo] anpassung in der demo app
-* [exercise] chatgpt webinterface: anpassung der sprache in einfache sprache (fuer kinder)
-* [demo] anpassung in der demo app
-* [exercise] ideation/discussion: weitere anwendungen von llm im musealen kontext
+![](screenshot.png)
 
-## further ideas
-* chat bot to explain game logic (onboarding)
-* adding a VUI on top (voice input and output)
-* fine tuning model with custom data
+## server
+that is the part the talks to openai and caches the answers (for now only in memory).
+
+## app
+that is the user-facing part, in this case a simple web app, but could be a mobile or desktop app.

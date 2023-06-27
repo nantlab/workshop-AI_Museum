@@ -16,6 +16,7 @@ const useStore = create(
     //   { title: "Katze", image: "https://randomfox.ca/images/120.jpg", description: "bla bla 1" },
     //   { title: "object 2", image: "https://randomfox.ca/images/121.jpg", description: "bla bla 2" },
     // ],
+    loading: false,
     currentItem: null,
     setLanguage: (language) => {
       set((state) => {
@@ -28,6 +29,9 @@ const useStore = create(
       });
     },
     setCurrentItem: async (currentItem) => {
+        set(() => {
+          return { loading: true };
+        });
         // console.log("set current item", currentItem)
       if (currentItem  && (get().simpleLanguage || get().language !== "German")) {
         const response = await axios.post(`${BASE_URL}/translateLanguage`, {
@@ -38,11 +42,12 @@ const useStore = create(
         set((state) => {
           return {
             currentItem: { ...currentItem, description: response.data.text },
+            loading: false
           };
         });
       } else {
         set((state) => {
-          return { currentItem };
+          return { currentItem, loading: false };
         });
       }
         // set((state) => {

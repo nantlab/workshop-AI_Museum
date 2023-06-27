@@ -6,6 +6,7 @@ import BasicModal from "./components/Modal";
 
 import styled from "@emotion/styled";
 import { theme } from "./theme.js";
+import { CircularProgress } from "@mui/material";
 
 const Container = styled.div`
   width: 100vw;
@@ -19,6 +20,7 @@ const Content = styled.div`
 function App() {
   const items = useStore((state) => state.items);
   const setCurrentItem = useStore((state) => state.setCurrentItem);
+  const loading = useStore((state) => state.loading);
 
   return (
     <Container className="App">
@@ -26,6 +28,7 @@ function App() {
         <Header></Header>
         <BasicModal></BasicModal>
         <Content>
+          {loading && <CircularProgress></CircularProgress>}
           {items.map((item, index) => {
             return (
               <Card
